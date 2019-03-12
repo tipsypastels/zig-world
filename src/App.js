@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GameMap from './GameMap';
+import ChooseName from './ChooseName';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: undefined,
+      items: []
+    }
+  }
+
+  setName = (name) => {
+    this.setState({ name });
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    if (this.state.name) {
+      return (
+        <div className="App App-GameMap">
+          <GameMap />
+        </div>
+      )
+    } else {
+      return (
+        <div className="App App-ChooseName">
+          <ChooseName setName={this.setName} />
+        </div>
+      )
+    }
   }
 }
 
