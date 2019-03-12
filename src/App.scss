@@ -1,0 +1,33 @@
+.App {
+  color: white;
+}
+
+@mixin Fullscreen {
+  position: fixed;
+  width: 100vw;
+  height: 100vw;
+}
+
+@mixin Sprite {
+  transform: scale(3);
+}
+
+.Zig {
+  @include Fullscreen;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.GameMap {
+  @include Fullscreen;
+  @include Sprite;
+
+  background-color: black;
+  background-image: url('./img/verdanturf.png');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: 0.1s ease-out;
+}
